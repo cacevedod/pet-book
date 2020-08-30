@@ -9,13 +9,15 @@ import { GalleryComponent } from './image-gallery/image-gallery.component';
 import { ImageDetailComponent } from './image-details/image-details.component';
 import { FilterimagesPipe } from './filterimages.pipe';
 import { ImageService } from './image.service';
+import { ImageDescriptionComponent } from './image-description/image-description.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GalleryComponent,
     ImageDetailComponent,
-    FilterimagesPipe
+    FilterimagesPipe,
+    ImageDescriptionComponent
   ],
   imports: [
     BrowserModule,

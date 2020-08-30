@@ -9,12 +9,9 @@ import { ActivatedRoute } from '@angular/router'
 export class ImageDetailComponent {    
   image:any    
     
-  constructor(private imageService: ImageService,    
-    private route: ActivatedRoute) { }    
+  constructor(private imageService: ImageService, private route: ActivatedRoute) { }    
     
   ngOnInit(){    
-    this.image = this.imageService.getImage(    
-      this.route.snapshot.params['id']    
-    )    
+    this.image = this.imageService.getImage(this.route.snapshot.params['id'])    
   }    
 }
