@@ -47,7 +47,7 @@ describe('ImageDetailsComponent', () => {
 
   describe('fixture', () => {
     it('Cuando se carga la vista, debe exisitr un elemento contenedor de imágenes con la clase img-container', () => {
-      expect(fixture.nativeElement.querySelector('.img-container')).toBeDefined();
+      expect(fixture.nativeElement.querySelector('.img-container')).toBeTruthy();
     });
   });
 });
