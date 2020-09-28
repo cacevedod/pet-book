@@ -1,49 +1,22 @@
-trigger:
-- master
-
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+    versionSpec: '6.x'
+    checkLatest: true
 
-- script: |
-    npm install -g @angular/cli
-    npm install
-    ng build --prod
-    npm run test-ci   
-    ls /coverage
-    ls     
-  displayName: 'npm install, unitTest and build'
-
-- task: SonarCloudPrepare@1
-  displayName: 'Prepare analysis on Sonar'
+- task: CmdLine@2
+  displayName: 'build'
   inputs:
-    SonarCloud: 'sonar-cloud'
-    scannerMode: 'CLI'
-    organization: 'cacevedod'
+    script: |
+      npm install -g @angular/cli
+      npm install
+      ng build --prod
+    
 
-- task: SonarCloudAnalyze@1
-  displayName: 'Run Code Analysis'
-
-- task: SonarCloudPublish@1
+- task: CmdLine@2
+  displayName: 'Unit Test'
   inputs:
-    pollingTimeoutSec: '300'
-
-- task: sonarcloud-buildbreaker@2
-  inputs:
-    SonarCloud: 'sonar-cloud'
-    organization: 'cacevedod'
-
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: 'dist/pet-book'
-    includeRootFolder: true
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/pet-book-$(Build.BuildId).zip'
-    replaceExistingArchive: true
-
-- task: PublishBuildArtifacts@1
+    script: 'npm run test-ci'
