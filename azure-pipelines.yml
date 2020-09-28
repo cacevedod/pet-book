@@ -25,9 +25,8 @@ steps:
   inputs:
     SonarCloud: 'sonarcloud'
     organization: 'cacevedod'
-    scannerMode: 'MSBuild'
-    projectKey: 'pet-book-udem2'
-    projectName: 'pet-book-udem2'
+    scannerMode: 'CLI'
+    configMode: 'file'
 
 - task: SonarCloudAnalyze@1
   displayName: 'Análisis de código estático'
@@ -36,3 +35,4 @@ steps:
   displayName: 'Quality Gate'
   inputs:
     pollingTimeoutSec: '300'
+  
