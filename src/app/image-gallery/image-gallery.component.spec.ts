@@ -22,4 +22,8 @@ xdescribe('ImageGalleryComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should create 2', () => {
+    expect(component).toBeTruthy();
+  });
 });
