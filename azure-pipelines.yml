@@ -55,6 +55,7 @@ steps:
     awsCredentials: 'aws-cuentapoc'
     regionName: 'us-east-1'
     bucketName: 'cacevedod-udem2-petbook'
+    sourceFolder: '$(Build.ArtifactStagingDirectory)'
     globExpressions: '*.zip'
     targetFolder: 'artefactos'
     createBucket: true
