@@ -1,5 +1,5 @@
 trigger:
-- main
+- tmpmed
 
 pool:
   vmImage: ubuntu-latest
